@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+	<types>
+		<members>accDisplay</members>
+		<members>accEdit</members>
+		<members>LDS_Demo_Display_Record</members>
+		<members>LDS_Demo_Save_Record</members>
+		<members>LDS_Demo_Insert_Record</members>
+		<members>LDS_Demo_Delete_Record</members>
+		<name>AuraDefinitionBundle</name>
+	</types>
+    <version>38.0</version>
+</Package>

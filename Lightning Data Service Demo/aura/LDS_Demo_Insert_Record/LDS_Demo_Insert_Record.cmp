@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="newContact" type="object"/>
+    <aura:attribute name="simpleContact" type="object" />
+    <aura:attribute name="errMsg" type="String" />
+    
+    
+    <force:recordData targetRecord="{!v.newContact}"
+                      targetFields="{!v.simpleContact}"
+                      targetError="{!v.errMsg}"
+                      layoutType="FULL"
+                      aura:id="contactCreator"
+                      />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="createContact">
+    	<lightning:card iconName="action:new_contact" title="New contact">
+        	<div class="slds-p-horizontal--small">
+            	<lightning:input aura:id="contactField" label="First Name" value="{!v.simpleContact.FirstName}"/>
+                <lightning:input aura:id="contactField" label="Last Name" value="{!v.simpleContact.LastName}"/>
+                <lightning:input aura:id="contactField" label="Title" value="{!v.simpleContact.Title}"/>
+                <p class="slds-p-around--small">
+                	<lightning:button label="Save Contact" variant="brand" onclick="{!c.handleSaveContact}"/>
+                </p>
+            </div>
+        </lightning:card>
+    </div>
+    <aura:If isTrue="{!not (empty (v.errMsg))}">
+    	<div>
+        	{!v.errMsg}
+        </div>
+    </aura:If>
+    
+</aura:component>

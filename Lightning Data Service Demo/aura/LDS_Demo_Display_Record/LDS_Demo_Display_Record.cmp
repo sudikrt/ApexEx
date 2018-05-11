@@ -1,0 +1,36 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute type="object" name="record" description="Contains the information about the record"/>
+    <aura:attribute name="simpleRecord" type="Object" description="Simplified View of record"/>
+    <aura:attribute name="errMsg" type="String" description="Simplified View of record"/>
+    
+    
+    
+    <force:recordData aura:id="record"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.errMsg}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="VIEW"
+                      />
+    
+    
+    <div class="RecordDetail">
+    	<lightning:card iconName="standard:account" title="{!v.simpleRecord.Name}">
+        	<div class="slds-p-horizontal--small">
+                <p class="slds-text-headding--small">
+                	<lightning:formattedText title="BillingState" value="{!v.simpleRecord.BillingState}"/>
+                </p> 
+                <p class="sldstext-heading--small">
+                    <lightning:formattedText title="Billing City" value="{!v.simpleRecord.BillingCity}"/>
+                </p>
+            </div>
+        </lightning:card>
+        
+        <aura:if isTrue="{!not (empty(v.errMsg))}">
+        	<div class="recordError">
+            	{!v.errMsg}
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

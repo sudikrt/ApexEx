@@ -1,0 +1,49 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute type="object" name="record" description="Contains the information about the record"/>
+    <aura:attribute name="simpleRecord" type="Object" description="Simplified View of record"/>
+    <aura:attribute name="errMsg" type="String" description="Simplified View of record"/>
+    
+    
+    
+    <force:recordData aura:id="record"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.errMsg}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="EDIT"
+                      />
+    
+    
+    <div class="RecordDetail">
+    	<lightning:card iconName="standard:account" title="{!v.simpleRecord.Name}">
+        	<div class="slds-p-horizontal--small">
+                <p class="slds-text-headding--small">
+                	<lightning:formattedText title="BillingState" value="{!v.simpleRecord.BillingState}"/>
+                </p> 
+                <p class="sldstext-heading--small">
+                    <lightning:formattedText title="Billing City" value="{!v.simpleRecord.BillingCity}"/>
+                </p>
+            </div>
+        </lightning:card>
+    </div>
+    
+    <div class="RecordDetail">
+        <lightning:card iconName="action:edit"  title="Edit account">
+        	<div class="slds-p-horizontal--small">
+            	<p>
+                    <lightning:input label="Name" value="{!v.simpleRecord.Name}"/>
+                </p>
+                <p class="slds-p-around--small">
+                    <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSaveRecord}"/>
+                </p>
+            </div>
+        </lightning:card>
+    </div>
+    
+    <aura:if isTrue="{!not (empty(v.errMsg))}">
+        <div class="recordError">
+            {!v.errMsg}
+        </div>
+    </aura:if>
+</aura:component>
