@@ -1,0 +1,37 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:button onclick="{!c.showActiveSection}" label="Show Active Section"/>
+    <lightning:button onclick="{!c.setActiveSection}" label="Open B Section"/>
+    <lightning:button onclick="{!c.toggleCSection}" label="Toggle C Section"/>
+    
+    <aura:attribute name="isVisible" type="Boolean" default="false"/>
+    <lightning:accordion aura:id="accordion" activeSectionName="A">
+    	<lightning:accordionSection name="A" label="Section A">
+        	<aura:set attribute="actions">
+            	<lightning:buttonMenu aura:id="menu" alternativeText="Show Menu" iconSize="x-small">
+                    <lightning:menuItem value="New" label="New"/>
+					<lightning:menuItem value="Edit" label="Edit"/>
+                </lightning:buttonMenu>
+            </aura:set>
+            <aura:set attribute="body">
+            	<p>
+                	The section A content
+                </p>
+            </aura:set>
+        </lightning:accordionSection>
+        
+        <lightning:accordionSection name="B" label="Section B">
+   			<p>
+            	The section B content
+            </p>     
+        </lightning:accordionSection>
+        
+        <aura:if isTrue="{!v.isVisible}">
+        	<lightning:accordionSection name="C" label="Section C">
+                <p>
+                    The section C content
+                </p>     
+            </lightning:accordionSection>
+        </aura:if>
+    </lightning:accordion>
+    
+</aura:component>

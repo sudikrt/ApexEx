@@ -1,0 +1,62 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!-- Basic Icon-->
+    <div class="slds-p-around--small">
+    	<lightning:avatar src="/bad/image/url.jpg" 
+                      initials="" 
+                      fallbackIconName="standard:account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+    </div>
+    <!-- Basic -->
+    <div class="slds-p-around--small">
+    	<lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg"
+                      initials="BW"
+                      fallbackIconName="standard:person_account"
+                      alternativeText="Sam"/>    
+    </div>
+    
+	<!--Size-->
+    <div class="slds-p-around--small">
+    	<lightning:avatar size="x-small"                       
+                      src="/bad/image/url.jpg" 
+                      initials="" 
+                      fallbackIconName="standard:person_account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+            	<lightning:avatar size="small"                       
+                      src="/bad/image/url.jpg" 
+                      initials="" 
+                      fallbackIconName="standard:person_account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+            	<lightning:avatar size="medium"                       
+                      src="/bad/image/url.jpg" 
+                      initials="" 
+                      fallbackIconName="standard:person_account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+            	<lightning:avatar size="large"                       
+                      src="/bad/image/url.jpg" 
+                      initials="" 
+                      fallbackIconName="standard:person_account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+    </div>
+   	<!--Variant-->
+    <div class="slds-p-around--small">
+    	<lightning:avatar size="large"  
+                      variant="circle"
+                      src="/bad/image/url.jpg" 
+                      initials="" 
+                      fallbackIconName="standard:person_account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+        <lightning:avatar size="large"                       
+                      src="/bad/image/url.jpg" 
+                      initials="" 
+                      variant="square"
+                      fallbackIconName="standard:person_account" 
+                      alternativeText="Salesforce" 
+                      class="slds-m-right_small"/>
+    </div>
+</aura:component>
