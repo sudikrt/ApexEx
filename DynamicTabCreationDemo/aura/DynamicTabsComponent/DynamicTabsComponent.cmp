@@ -1,0 +1,15 @@
+<aura:component controller="DynamicTabsCntl">
+    <aura:attribute name="tabs" type="Aura.Component[]" />
+    
+    <aura:attribute name="tabsData" type="Object"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:dependency resource="markup://lightning:tab" />
+    <lightning:tabset variant="vertical">
+  
+    	<aura:iteration items="{!v.tabs}" var="item">
+        	{!item}
+        </aura:iteration>
+    </lightning:tabset>
+</aura:component>
