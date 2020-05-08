@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Lightning messaging Demo" icon-name="utility:connected_apps">
+        <div class="slds-m-around_medium">
+            <p>Message Channel : messageChannelSample__c</p>
+            <br/>
+            <p>Subscribe status : {subscribeStatus}</p>
+            <lightning-button label="Subscribe" onclick={onSubscribeClick}></lightning-button>
+            <lightning-button label="Un-Subscribe" onclick={onUnSubscribeClick}></lightning-button>
+        </div>
+        <div class="slds-m-around_small">
+            <lightning-input class="slds-m-bottom_small" type="text" label="Message" value={myMessage} onchange={onInputChange}></lightning-input>
+            <lightning-button  label="Publish" onclick={onPublishClick}></lightning-button> 
+        </div>
+        <div class="slds-m-around_small">
+            <p>Received messages</p>
+            <lightning-textarea readonly value={receivedMessage} rows="7" style="height:150px;"></lightning-textarea>
+        </div>
+    </lightning-card>
+</template>
